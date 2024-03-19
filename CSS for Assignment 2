@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+body {
+    /*Establish layout for webpage using grid areas*/
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "picture picture article"
+    "intro intro article"
+    "article article article"
+    "footer footer footer";
+}
