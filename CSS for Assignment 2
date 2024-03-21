@@ -1,12 +1,118 @@
 @charset "UTF-8";
 
+html {
+    /*Apply box sizing, base font size, line height, and default font*/
+    /* Apply box sizing */
+	box-sizing: border-box;
+
+    /*Default font*/
+    font-family: 'Libre Baskerville', serif;;
+
+    /* Default font size*/
+    font-size: 120%;
+
+    /*Default line height*/
+    line-height: 1.4;
+}
+
+ *, *:before, *:after {
+    box-sizing: inherit;
+    }
+
+/* Set display to grid in body */
+/* Apply default styling to page */
 body {
+    /* Default background color */
+    background-color: whitesmoke;
+
+    /* Add margins to give page space */
+    margin: auto 15px;
+    
+
     /*Establish layout for webpage using grid areas*/
     display: grid;
     grid-template-areas: 
-    "header header header"
-    "picture picture article"
-    "intro intro article"
-    "article article article"
-    "footer footer footer";
+    "header        header         header"
+    "intro         intro          paragraphFive"
+    "intro         intro          paragraphSix"
+    "paragraphOne  paragraphThree paragraphSeven"
+    "paragraphTwo  paragraphFour  paragraphSeven"
+    "footer        footer         footer";
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    
+    
+}
+
+/* ******** GRID AREA SELECTION AND STYLING *********** */
+
+/* Select header */
+/* Make it grid-area header */
+header{
+    grid-area: header;
+}
+
+/* Select first h2 and p of article */
+/* Make it grid-area intro */
+article > h2:nth-child(1),
+article > p:nth-child(1) {
+    grid-area: intro;
+    color: aqua;
+}
+
+/* Select second h2 and p of article */
+/* Make it grid-area paragraphOne */
+article > h2:nth-child(2),
+article > p:nth-child(2) {
+    grid-area: paragraphOne;
+    
+}
+
+/* Select third h2 and p of article */
+/* Make it grid-area paragraphTwo */
+article > h2:nth-child(3),
+article > p:nth-child(3) {
+    grid-area: paragraphTwo;
+}
+
+/* Select fourth h2 and p of article */
+/* Make it grid-area paragraphThree */
+article > h2:nth-child(4),
+article > p:nth-child(4) {
+    grid-area: paragraphThree;
+}
+
+/* Select fifth h2 and p of article */
+/* Make it grid-area paragraphFour */
+article > h2:nth-child(5),
+article > p:nth-child(5) {
+    grid-area: paragraphFour;
+}
+
+/* Select sixth h2 and p of article */
+/* Make it grid-area paragraphFive */
+article > h2:nth-child(6),
+article > p:nth-child(6) {
+    grid-area: paragraphFive;
+}
+
+/* Select seventh h2 and p of article */
+/* Make it grid-area paragraphSix */
+article > h2:nth-child(7),
+article > p:nth-child(7) {
+    grid-area: paragraphSix;
+}
+
+/* Select eighth h2 and 8th/9th p of article */
+/* Make it grid-area paragraphSeven */
+article > h2:nth-child(8),
+article > p:nth-child(8),
+article > p:nth-child(9)
+ {
+    grid-area: paragraphSeven;
+}
+
+footer{
+    grid-area: footer;
 }
