@@ -13,106 +13,97 @@ html {
 
     /*Default line height*/
     line-height: 1.4;
+
+    /* Apply box sizing */
 }
 
  *, *:before, *:after {
     box-sizing: inherit;
     }
 
-/* Set display to grid in body */
-/* Apply default styling to page */
-body {
-    /* Default background color */
-    background-color: whitesmoke;
-
-    /* Add margins to give page space */
+/* Apply styling to body */
+body{
     margin: auto 15px;
-    
+    background-color: whitesmoke;
+}
 
-    /*Establish layout for webpage using grid areas*/
+/* Set up main grid for header main and footer. */
+#container {
     display: grid;
-    grid-template-areas: 
-    "header        header         header"
-    "intro         intro          paragraphFive"
-    "intro         intro          paragraphSix"
-    "paragraphOne  paragraphThree paragraphSeven"
-    "paragraphTwo  paragraphFour  paragraphSeven"
-    "footer        footer         footer";
-
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    
-    
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 10px;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
 }
 
-/* ******** GRID AREA SELECTION AND STYLING *********** */
+/************** Customize main grid ******************/
 
-/* Select header */
-/* Make it grid-area header */
-header{
+/* Make header grid-area header */
+/* Insert and position image into header */
+header {
     grid-area: header;
+
+    background-image: url(Dog.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
-/* Select first h2 and p of article */
-/* Make it grid-area intro */
-article > h2:nth-child(1),
-article > p:nth-child(1) {
-    grid-area: intro;
-    color: aqua;
+main {
+    grid-area: main;
 }
 
-/* Select second h2 and p of article */
-/* Make it grid-area paragraphOne */
-article > h2:nth-child(2),
-article > p:nth-child(2) {
-    grid-area: paragraphOne;
-    
-}
-
-/* Select third h2 and p of article */
-/* Make it grid-area paragraphTwo */
-article > h2:nth-child(3),
-article > p:nth-child(3) {
-    grid-area: paragraphTwo;
-}
-
-/* Select fourth h2 and p of article */
-/* Make it grid-area paragraphThree */
-article > h2:nth-child(4),
-article > p:nth-child(4) {
-    grid-area: paragraphThree;
-}
-
-/* Select fifth h2 and p of article */
-/* Make it grid-area paragraphFour */
-article > h2:nth-child(5),
-article > p:nth-child(5) {
-    grid-area: paragraphFour;
-}
-
-/* Select sixth h2 and p of article */
-/* Make it grid-area paragraphFive */
-article > h2:nth-child(6),
-article > p:nth-child(6) {
-    grid-area: paragraphFive;
-}
-
-/* Select seventh h2 and p of article */
-/* Make it grid-area paragraphSix */
-article > h2:nth-child(7),
-article > p:nth-child(7) {
-    grid-area: paragraphSix;
-}
-
-/* Select eighth h2 and 8th/9th p of article */
-/* Make it grid-area paragraphSeven */
-article > h2:nth-child(8),
-article > p:nth-child(8),
-article > p:nth-child(9)
- {
-    grid-area: paragraphSeven;
-}
-
-footer{
+footer {
     grid-area: footer;
 }
+
+/******************* Subgrid of Main grid to organize text correctly ***************/
+main {
+    display: grid;
+    grid-template-areas: 
+    "asideOne articleOne"
+    "asideTwo articleTwo";
+    gap: 10px;
+    grid-template-columns: 0.5fr 2fr;
+}
+
+/******************** Customize sub grid *************************/
+/* Dog Day Article */
+main article:nth-of-type(1) {
+    grid-area: articleOne;
+}
+
+main article:nth-of-type(2)::before {
+    content: url(Tube.png);
+    display: inline-block;
+    width: auto;
+    height: 0px;
+}
+
+/* On The Slopes Article */
+main article:nth-of-type(2) {
+    grid-area: articleTwo;
+}
+
+/* Tubbs Romp Aside */
+main aside:nth-of-type(1) {
+    grid-area: asideOne;
+}
+
+/* Carolling Aside */
+main aside:nth-of-type(2) {
+    grid-area: asideTwo;
+}
+
+article, aside {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+/* 
+Works Referenced: 
+https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid
+*/
