@@ -24,7 +24,7 @@ html {
 /* Apply styling to body */
 /* Make page similar to magazine article. */
 body{
-    margin: auto 150px;
+    margin: auto 10vw;
     background-color: whitesmoke;
 }
 
@@ -33,7 +33,7 @@ body{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr auto;
-    gap: 10px;
+    gap: 1vw;
     grid-template-areas:
         "location"
         "title"
@@ -47,9 +47,10 @@ body{
 header p:nth-of-type(1){
     grid-area: location;
 
-    margin-bottom: 0px;
+    margin-bottom: -4.5vw;
 
-    font-weight: bold;
+    font-family:monospace;
+    text-transform: uppercase;
 }
 
 header h1:nth-of-type(1){
@@ -60,12 +61,11 @@ header h1:nth-of-type(1){
     background-repeat: no-repeat;
     background-position: right;
 
-
     text-transform: lowercase;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size:100px;
     
-    margin-bottom: -20px;
+    margin-bottom: -2vw;
 
     border:solid;
     border-bottom: hidden;
@@ -81,6 +81,7 @@ footer {
 
 header h1 em{
     color: red;
+    
 }
 
 /******************* Subgrid of Main grid to organize text correctly ***************/
@@ -89,7 +90,7 @@ main {
     grid-template-areas: 
     "asideOne articleOne"
     "asideTwo articleTwo";
-    gap: 10px;
+    gap: 1vw;
     grid-template-columns: 0.5fr 2fr;
     border: solid;
     border-top: hidden;
@@ -99,13 +100,14 @@ main {
 /* Dog Day Article */
 main article:nth-of-type(1) {
     grid-area: articleOne;
+
 }
 
 main article:nth-of-type(2)::before {
     display:inline-block;
-    width: 500px;
-    height: 300px;
-    margin-left: 350px;
+    width: 50vw;
+    height: 31vw;
+    margin-left: 5vw;
     content: "";
     background-size: 100%;
     background-image: url(Tube.png);
@@ -115,16 +117,25 @@ main article:nth-of-type(2)::before {
 /* On The Slopes Article */
 main article:nth-of-type(2) {
     grid-area: articleTwo;
+
 }
 
 /* Tubbs Romp Aside */
 main aside:nth-of-type(1) {
     grid-area: asideOne;
+    
+    padding: 1vw;
+
+    border-right:solid;
 }
 
 /* Carolling Aside */
 main aside:nth-of-type(2) {
     grid-area: asideTwo;
+
+    padding: 1vw;
+
+    background-color: rgba(184, 162, 162, 0.222);
 }
 
 /* 
