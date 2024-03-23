@@ -31,8 +31,7 @@ body{
 /************** Set up main grid ********************/
 #container {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr 2fr;
     gap: 1vw;
     grid-template-areas:
         "location"
@@ -59,7 +58,7 @@ header h1:nth-of-type(1){
     background-image: url(Dog.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: right;
+    background-position:58vw;
 
     text-transform: lowercase;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -90,7 +89,7 @@ main {
     grid-template-areas: 
     "asideOne articleOne"
     "asideTwo articleTwo";
-    gap: 1vw;
+    gap: 4vw;
     grid-template-columns: 0.5fr 2fr;
     border: solid;
     border-top: hidden;
@@ -100,6 +99,7 @@ main {
 /* Dog Day Article */
 main article:nth-of-type(1) {
     grid-area: articleOne;
+    padding-right: 3vw;
 
 }
 
@@ -107,7 +107,7 @@ main article:nth-of-type(2)::before {
     display:inline-block;
     width: 50vw;
     height: 31vw;
-    margin-left: 5vw;
+    margin-left: 0vw;
     content: "";
     background-size: 100%;
     background-image: url(Tube.png);
@@ -117,6 +117,7 @@ main article:nth-of-type(2)::before {
 /* On The Slopes Article */
 main article:nth-of-type(2) {
     grid-area: articleTwo;
+    padding-right: 3vw;
 
 }
 
