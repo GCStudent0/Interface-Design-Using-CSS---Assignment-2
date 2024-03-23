@@ -6,7 +6,7 @@ html {
 	box-sizing: border-box;
 
     /*Default font*/
-    font-family: 'Libre Baskerville', serif;;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     /* Default font size*/
     font-size: 120%;
@@ -22,34 +22,53 @@ html {
     }
 
 /* Apply styling to body */
+/* Make page similar to magazine article. */
 body{
-    margin: auto 15px;
+    margin: auto 150px;
     background-color: whitesmoke;
 }
 
-/* Set up main grid for header main and footer. */
+/************** Set up main grid ********************/
 #container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr auto;
     gap: 10px;
     grid-template-areas:
-        "header"
+        "location"
+        "title"
         "main"
         "footer";
 }
 
 /************** Customize main grid ******************/
 
-/* Make header grid-area header */
-/* Insert and position image into header */
-header {
-    grid-area: header;
+/* Divide header into two parts: location and title*/
+header p:nth-of-type(1){
+    grid-area: location;
+
+    margin-bottom: 0px;
+
+    font-weight: bold;
+}
+
+header h1:nth-of-type(1){
+    grid-area: title;
 
     background-image: url(Dog.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right;
+
+
+    text-transform: lowercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:100px;
+    
+    margin-bottom: -20px;
+
+    border:solid;
+    border-bottom: hidden;
 }
 
 main {
@@ -60,6 +79,10 @@ footer {
     grid-area: footer;
 }
 
+header h1 em{
+    color: red;
+}
+
 /******************* Subgrid of Main grid to organize text correctly ***************/
 main {
     display: grid;
@@ -68,6 +91,8 @@ main {
     "asideTwo articleTwo";
     gap: 10px;
     grid-template-columns: 0.5fr 2fr;
+    border: solid;
+    border-top: hidden;
 }
 
 /******************** Customize sub grid *************************/
@@ -102,13 +127,10 @@ main aside:nth-of-type(2) {
     grid-area: asideTwo;
 }
 
-article, aside {
-    border: 1px solid #ccc;
-    padding: 10px;
-}
 /* 
 Works Referenced: 
 https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid
 https://stackoverflow.com/questions/12082948/resize-the-content-propertys-image
+https://stackoverflow.com/questions/11902133/extending-a-div-border-outside-wrap
 */
