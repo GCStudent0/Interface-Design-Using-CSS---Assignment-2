@@ -1,3 +1,8 @@
+/* Jason Hunt */
+/* 200567508 */
+/* CSS Assignment 2 */
+/* March 22, 2024 */
+
 @charset "UTF-8";
 
 html {
@@ -13,16 +18,14 @@ html {
 
     /*Default line height*/
     line-height: 1.4;
-
-    /* Apply box sizing */
 }
 
+/* Apply box sizing */
  *, *:before, *:after {
     box-sizing: inherit;
     }
 
-/* Apply styling to body */
-/* Make page similar to magazine article. */
+/* Apply base styling to body */
 body{
     margin: auto 10vw;
     background-color: whitesmoke;
@@ -31,7 +34,6 @@ body{
 /************** Set up main grid ********************/
 #container {
     display: grid;
-    grid-template-columns: 1fr 2fr;
     gap: 1vw;
     grid-template-areas:
         "location"
@@ -51,7 +53,7 @@ header p:nth-of-type(1){
     font-family:monospace;
     text-transform: uppercase;
 }
-
+/* Set title as grid area title, add dog image and apply styling */
 header h1:nth-of-type(1){
     grid-area: title;
 
@@ -70,10 +72,12 @@ header h1:nth-of-type(1){
     border-bottom: hidden;
 }
 
+/* Set main to grid-area main */
 main {
     grid-area: main;
 }
 
+/* Set footer to grid area footer */
 footer {
     grid-area: footer;
 }
@@ -82,6 +86,7 @@ footer {
 
 footer em,
 footer abbr{
+    margin-top: 0;
     font-weight: bold;
 }
 
@@ -93,13 +98,14 @@ header h1 em{
 }
 
 /******************* Subgrid of Main grid to organize text correctly ***************/
+
+/* Organize grid and add borders around it. */
 main {
     display: grid;
     grid-template-areas: 
     "asideOne articleOne"
     "asideTwo articleTwo";
     gap: 4vw;
-    grid-template-columns: 0.5fr 2fr;
     border: solid;
     border-top: hidden;
 }
@@ -114,12 +120,12 @@ a{
 
 /* Dog Day Article */
 
-    /* Set dog dary article as grid area articleOne */
+    /* Set dog day article as grid area articleOne and add padding*/
     main article:nth-of-type(1) {
         grid-area: articleOne;
         padding-right: 3vw;
     }
-    /* Style article title */
+    /* Style article title and adjust margin*/
     main article:nth-of-type(1) h2{
         color: rgb(215, 15, 15);
         
@@ -142,13 +148,13 @@ a{
 
 /* On The Slopes Article */
 
-    /* Set on the slops article to grid area article two */
+    /* Set on the slops article to grid area article two and add padding */
     main article:nth-of-type(2) {
         grid-area: articleTwo;
         padding-right: 3vw;
     }
 
-    /* Style title of on the slopes*/
+    /* Style title of on the slopes, adjust margin, and make lowercase */
     main article:nth-of-type(2) h2{
     font-family:Arial, Helvetica, sans-serif;
     font-weight: lighter;
@@ -170,17 +176,19 @@ a{
 }
 
 /* Tubbs Romp Aside */
-    /* Set Tubbs Romp Aside to grid area asideOne */
+    /* Set Tubbs Romp Aside to grid area asideOne, add padding, make right border, and adjust font size.*/
     main aside:nth-of-type(1) {
         grid-area: asideOne;
         
         padding: 1vw;
 
         border-right:solid;
+
+        font-size: x-large;
     }
 
 /* Carolling Aside */
-    /* Set Carolling Aside to grid area asideTwo */
+    /* Set Carolling Aside to grid area asideTwo, add padding, change background color. */
     main aside:nth-of-type(2) {
     grid-area: asideTwo;
 
@@ -188,7 +196,7 @@ a{
 
     background-color: rgba(184, 162, 162, 0.222);
 }
-    /* Change title color and size */
+    /* Change title color/size and adjust margin */
     main aside:nth-of-type(2) h2{
         color: rgb(215, 15, 15);
         
@@ -198,7 +206,7 @@ a{
         margin-top: -3vw;
     }
 
-    /* Add big "+" sign to left of A-Carolling */
+    /* Add "+" sign to left of A-Carolling */
     main aside:nth-of-type(2) h2::before{
         content: "+";
         color: black;
@@ -226,6 +234,65 @@ a{
         left: -20px; 
       }
 
+/**************** Media query to adjust page on device width below 864 **********************/
+      @media screen and (max-width: 864px){
+        
+        /* Align all text to center */
+        #container{
+            text-align: center;
+        }
+
+        /* Make subgrid one column and adjust borders*/
+        main {
+            display: grid;
+            grid-template-areas: 
+            "articleOne"
+            "asideOne"
+            "articleTwo"
+            "asideTwo";
+            
+            border: solid;
+            border-top: hidden;
+        }
+
+        /* Remove dog image next to title */
+        header h1:nth-of-type(1){
+            background-image: none;
+        }
+
+        /* Add dog image below title */
+        main article:nth-of-type(1)::before {
+            display:inline-block;
+            width: 50vw;
+            height: 31vw;
+            content: "";
+            background-size: 100%;
+            background-image: url(Dog.png);
+            background-repeat: no-repeat;
+            margin-bottom: -6vw;
+        }
+
+        /* Change border of Tubbs Romp aside and adjust padding. */
+        main aside:nth-of-type(1) {
+            grid-area: asideOne;
+            
+            padding: 1vw;
+            
+            border-right: hidden;
+            border-top:solid;
+            border-bottom:solid;
+        }
+
+        /* Adjust position of A-Carolling title */
+        main aside:nth-of-type(2) h2 {
+            margin-top: 0vw;
+        }
+
+        /* Remove "plus" signs in A-Carolling list */
+        ul li::before {
+            content:none;
+        }
+    }
 
 /* 
 Works Referenced: 
