@@ -78,8 +78,17 @@ footer {
     grid-area: footer;
 }
 
+/* Bold the number and "CAA" in footer */
+
+footer em,
+footer abbr{
+    font-weight: bold;
+}
+
+/* Make "home" in title red */
 header h1 em{
-    color: red;
+    color: rgb(215, 15, 15);
+    font-style: normal;
     
 }
 
@@ -96,48 +105,127 @@ main {
 }
 
 /******************** Customize sub grid *************************/
+
+/* Make web links black and bold */
+a{
+    color: black;
+    font-weight: bold;
+}
+
 /* Dog Day Article */
-main article:nth-of-type(1) {
-    grid-area: articleOne;
-    padding-right: 3vw;
 
-}
+    /* Set dog dary article as grid area articleOne */
+    main article:nth-of-type(1) {
+        grid-area: articleOne;
+        padding-right: 3vw;
+    }
+    /* Style article title */
+    main article:nth-of-type(1) h2{
+        color: rgb(215, 15, 15);
+        
+        font-size: 50px;
 
-main article:nth-of-type(2)::before {
-    display:inline-block;
-    width: 50vw;
-    height: 31vw;
-    margin-left: 0vw;
-    content: "";
-    background-size: 100%;
-    background-image: url(Tube.png);
-    background-repeat: no-repeat;
-}
+        margin-bottom: -1.3vw;
+    }
+
+    /* Insert image */
+    main article:nth-of-type(2)::before {
+        display:inline-block;
+        width: 50vw;
+        height: 31vw;
+        margin-left: 0vw;
+        content: "";
+        background-size: 100%;
+        background-image: url(Tube.png);
+        background-repeat: no-repeat;
+    }
 
 /* On The Slopes Article */
-main article:nth-of-type(2) {
-    grid-area: articleTwo;
-    padding-right: 3vw;
 
+    /* Set on the slops article to grid area article two */
+    main article:nth-of-type(2) {
+        grid-area: articleTwo;
+        padding-right: 3vw;
+    }
+
+    /* Style title of on the slopes*/
+    main article:nth-of-type(2) h2{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    text-transform: lowercase;
+    
+    font-size: 70px;
+
+    margin-bottom: -1.3vw;
+    margin-top: 0;
+}
+    /* First letter of on the slops changed to capital */
+    main article:nth-of-type(2) h2:first-letter{
+    text-transform: uppercase;
+}
+
+    /* Make highlight section grey rather than yellow */
+    main article:nth-of-type(2) p mark{
+    background-color: rgb(218, 216, 216);
 }
 
 /* Tubbs Romp Aside */
-main aside:nth-of-type(1) {
-    grid-area: asideOne;
-    
-    padding: 1vw;
+    /* Set Tubbs Romp Aside to grid area asideOne */
+    main aside:nth-of-type(1) {
+        grid-area: asideOne;
+        
+        padding: 1vw;
 
-    border-right:solid;
-}
+        border-right:solid;
+    }
 
 /* Carolling Aside */
-main aside:nth-of-type(2) {
+    /* Set Carolling Aside to grid area asideTwo */
+    main aside:nth-of-type(2) {
     grid-area: asideTwo;
 
     padding: 1vw;
 
     background-color: rgba(184, 162, 162, 0.222);
 }
+    /* Change title color and size */
+    main aside:nth-of-type(2) h2{
+        color: rgb(215, 15, 15);
+        
+        font-size: 23px;
+
+        margin-bottom: -1.3vw;
+        margin-top: -3vw;
+    }
+
+    /* Add big "+" sign to left of A-Carolling */
+    main aside:nth-of-type(2) h2::before{
+        content: "+";
+        color: black;
+        font-size: 5vw;
+        font-weight: lighter;
+        
+    }
+
+    /* Change list bullets to "+" */
+    ul {
+        list-style-type: none; 
+        padding-left: 20px; 
+      }
+      
+      ul li {
+        position: relative; 
+      }
+      
+      ul li::before {
+        content: "+"; 
+        display: inline-block; 
+        width: 20px; 
+        text-align: center; 
+        position: absolute; 
+        left: -20px; 
+      }
+
 
 /* 
 Works Referenced: 
