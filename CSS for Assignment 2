@@ -57,7 +57,7 @@ header p:nth-of-type(1){
 header h1:nth-of-type(1){
     grid-area: title;
 
-    background-image: url(Dog.png);
+    background-image: url(Dog.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position:58vw;
@@ -142,7 +142,7 @@ a{
         margin-left: 0vw;
         content: "";
         background-size: 100%;
-        background-image: url(Tube.png);
+        background-image: url(Tube.jpg);
         background-repeat: no-repeat;
     }
 
@@ -267,7 +267,7 @@ a{
             height: 31vw;
             content: "";
             background-size: 100%;
-            background-image: url(Dog.png);
+            background-image: url(Dog.jpg);
             background-repeat: no-repeat;
             margin-bottom: -6vw;
         }
